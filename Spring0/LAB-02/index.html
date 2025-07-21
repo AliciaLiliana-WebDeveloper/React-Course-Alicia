@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Arte Traumgalerie</title>
+    <meta name="description" content="Explora nuestra galería de arte contemporáneo con obras únicas en Madrid">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- ENCABEZADO FIJO -->
+  <header>
+    <div class="logo">Traumgalerie</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#info">Sobre Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- BANNER PRINCIPAL -->
+  <section class="banner" id="inicio">
+    <h1>Explora nuestras obras en tendencia</h1>
+  </section>
+ <!-- GALERÍA -->
+ <section class="galeria" id="galeria">
+    <h2>Galería de Obras</h2>
+    <div class="grid-galeria">
+      <div class="obra">
+        <img src="img/obra1.jpg" alt="Obra 1" />
+        <p>Tic Tok, 2024</p>
+      </div>
+      <div class="obra">
+        <img src="img/obra2.jpg" alt="Obra 2" />
+        <p>Burn out lover, burn out, 2024</p>
+      </div>
+      <div class="obra">
+        <img src="img/obra3.jpg" alt="Obra 3" />
+        <p>All the joy, 2024</p>
+      </div>
+      <div class="obra">
+        <img src="img/obra4.jpg" alt="Obra 4" />
+        <p>If I Can, Vandercam, 2024</p>
+      </div>
+      <div class="obra">
+        <img src="img/obra5.jpg" alt="Obra 5" />
+        <p>Same Strokes Different Folks, 2024</p>
+      </div>
+      <div class="obra">
+        <img src="img/obra6.jpg" alt="Obra 6" />
+        <p>Different Folks, 2024</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO: layout con FLOAT -->
+  <section class="info" id="info">
+    <img src="img/artista.jpg" alt="Artista en estudio" class="img-float" />
+    <div class="texto-info">
+      <h2>Sobre la Galería</h2>
+      <p>Nuestra galería tiene como objetivo promover el arte de artistas emergentes. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo odio laudantium modi, id impedit fuga molestiae quis nesciunt quibusdam eaque nemo eveniet atque suscipit quo dignissimos quos iste quae odit excepturi non perspiciatis ratione aspernatur? Tenetur sapiente possimus dolore pariatur! Nam accusamus rerum maxime possimus non deleniti perferendis odio doloremque tempore debitis? Minima error autem temporibus alias itaque enim sit, similique recusandae voluptatum dolores tenetur, fuga consequuntur, nesciunt nihil deserunt et sed accusantium cupiditate repudiandae delectus nulla! Dolor voluptatum magnam facilis? Dicta tempora aspernatur quasi eligendi ipsa? Molestiae soluta vel perspiciatis cumque quam officia, similique commodi inventore deserunt possimus! Id.</p>
+    </div>
+    <div style="clear: both;"></div>
+  </section>
+
+  <!-- CONTACTO: formulario con FLEX -->
+  <section class="contacto" id="contacto">
+    <h2>Contacto</h2>
+    <form>
+      <div class="campo">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required />
+      </div>
+      <div class="campo">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+      </div>
+      <div class="campo">
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" />
+      </div>
+      <div class="campo">
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" rows="4" required></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+          <p>&copy; 2025 ArteVivo</p>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Mapa del sitio</a></li>
+          </ul>
+        </div>
+      </footer>
+</body>
+</html>
