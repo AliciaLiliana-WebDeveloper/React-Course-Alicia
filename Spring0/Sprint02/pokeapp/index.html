@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Bienvenidos a Pokemon API</h1>
+
+  <!-- FORMULARIO DE BÚSQUEDA -->
+  <form id="search-form">
+    <input type="text" id="search-input" placeholder="Nombre o ID del Pokémon" required>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <!-- DETALLES DEL POKÉMON SELECCIONADO -->
+  <div id="pokemon-detail"></div>
+
+  <!-- LISTA DE POKÉMON -->
+  <div id="pokemon-list"></div>
+
+  <!-- PAGINACIÓN -->
+  <div id="pagination">
+    <button id="prev-btn">Anterior</button>
+    <button id="next-btn">Siguiente</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
