@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Alert Alicia Project</title>
+</head>
+<body>
+    <script type="module" src="./app-alert.js"></script>
+
+    <app-alert type="success" message="Se ha guardado perfectamente" open></app-alert>
+    <app-alert type="info" message="Información importante" open></app-alert>
+    <app-alert type="warning" message="Atención, se ha detectado un riesgo!!" open></app-alert>
+    <app-alert type="error" message="Ha ocurrido un error" open></app-alert>
+    
+    <script>
+        const infoAlert = document.querySelector('app-alert[type="info"]');
+        setTimeout(() => infoAlert.setAttribute('message', 'Mensaje que se ha actualizado'), 2000);
+    </script>
+</body>
+</html>
