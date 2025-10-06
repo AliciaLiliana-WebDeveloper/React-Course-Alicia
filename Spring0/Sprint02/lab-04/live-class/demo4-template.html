@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo 4 Templates</title>
+</head>
+<body>
+  <h1>Demo 4: Uso de templates</h1>
+
+  <!-- Template -->
+  <template id="user-card-template">
+    <style>
+      .user {
+        border: 1px solid #ddd;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        font-family: sans-serif;
+      }
+    </style>
+    <div class="user">
+      <strong></strong>
+      <p></p>
+    </div>
+  </template>
+
+  <!-- Uso del componente -->
+<user-card></user-card>
+  <user-card></user-card>
+  <user-card></user-card>
+
+<script>
+class UserCard extends HTMLElement {
+  constructor() {
+    super();
+
+    const template = document.getElementById("user-card-template");
+    const content = template.content.cloneNode(true);
+
+    const shadow = this.attachShadow({ mode: "open" });
+    shadow.appendChild(content);
+
+    shadow.querySelector("strong").textContent = "Alejandro";
+    shadow.querySelector("p").textContent = "Desarrollador";
+  }
+}
+
+// Definición del custom element fuera de la clase
+customElements.define("user-card", UserCard);
+</script>
+</body>
+</html>

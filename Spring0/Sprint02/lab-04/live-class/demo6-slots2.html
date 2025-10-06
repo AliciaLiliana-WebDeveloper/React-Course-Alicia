@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo: Varios slots</title>
+</head>
+<body>
+  <h1>Demo: Varios slots</h1>
+
+  <my-card>
+    <span slot="title">Web Components</span>
+    <p slot="content">Este es el contenido principal de la tarjeta.</p>
+    <button slot="footer">Aceptar</button>
+  </my-card>
+
+  <script>
+    class MyCard extends HTMLElement {
+      constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: "open" });
+        shadow.innerHTML = `
+          <style>
+            .card {
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              padding: 1rem;
+              font-family: sans-serif;
+              max-width: 250px;
+            }
+            .card h2 {
+              margin: 0 0 0.5rem 0;
+              font-size: 1.2rem;
+              color: darkblue;
+            }
+            .card footer {
+              margin-top: 1rem;
+              text-align: right;
+            }
+          </style>
+          <div class="card">
+            <h2><slot name="title"></slot></h2>
+            <div><slot name="content"></slot></div>
+            <footer><slot name="footer"></slot></footer>
+          </div>
+        `;
+      }
+    }
+
+    customElements.define("my-card", MyCard);
+  </script>
+</body>
+</html>

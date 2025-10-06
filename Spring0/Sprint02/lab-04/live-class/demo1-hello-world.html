@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo 1 Hello World</title>
+</head>
+<body>
+  <h1>Demo 1: Hello World Web Component</h1>
+
+  <!-- <hello-world></hello-world> -->
+  <hello-world></hello-world>
+  <hello-world></hello-world>
+  <hello-world></hello-world>
+  <hello-world></hello-world>
+  <hello-world></hello-world>
+  <hola-world></hola-world>
+
+  <script>
+    class HelloWorld extends HTMLElement {
+      connectedCallback() {
+        this.innerHTML = "<h2>¡Hola, Web Components!</h2>";
+      }
+      disconectedCallBack() {
+
+      }
+      attributeChangedCallback(){
+
+      }
+    }
+
+    customElements.define("hello-world", HelloWorld);
+    customElements.define("hola-world", HelloWorld);
+  </script>
+</body>
+</html>

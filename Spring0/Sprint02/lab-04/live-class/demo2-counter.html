@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo 2 Counter</title>
+</head>
+<body>
+  <h1>Demo 2: Custom Element con lógica</h1>
+
+  <my-counter></my-counter>
+  <div id="counter-container"></div>
+  <my-counter></my-counter>
+  <my-counter></my-counter>
+
+  <script>
+    class MyCounter extends HTMLElement {
+      constructor() {
+        super();
+        this.count = 0;
+        this.button = document.createElement("button");
+        this.button.textContent = "Clicks: 0";
+        this.button.addEventListener("click", () => {
+          this.count++;
+          this.button.textContent = `Clicks: ${this.count}`;
+        });
+      }
+
+      connectedCallback() {
+        this.appendChild(this.button);
+      }
+    }
+
+    customElements.define("my-counter", MyCounter);
+  </script>
+</body>
+</html>

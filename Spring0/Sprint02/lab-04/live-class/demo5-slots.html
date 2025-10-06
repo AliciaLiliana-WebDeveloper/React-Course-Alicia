@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo 5 Slots</title>
+</head>
+<body>
+  <h1>Demo 5: Composición con Slots</h1>
+
+  <alert-box>
+    <p>Este es el mensaje que paso desde fuera.</p>
+  </alert-box>
+
+  <script>
+    class AlertBox extends HTMLElement {
+      constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: "open" });
+        shadow.innerHTML = `
+          <style>
+            .alert {
+              border: 2px solid red;
+              padding: 1rem;
+              background: #ffe0eb;
+            }
+          </style>
+          <div class="alert">
+            Hola que tal <slot></slot>
+          </div>
+        `;
+      }
+    }
+
+    customElements.define("alert-box", AlertBox);
+  </script>
+</body>
+</html>
