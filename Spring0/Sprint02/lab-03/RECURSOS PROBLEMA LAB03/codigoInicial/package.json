@@ -1,0 +1,24 @@
+{
+  "name": "ejercicio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass scss:css",
+    "build-dev": "sass --watch scss:css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliciaLiliana-WebDeveloper/React-Course-Alicia.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AliciaLiliana-WebDeveloper/React-Course-Alicia/issues"
+  },
+  "homepage": "https://github.com/AliciaLiliana-WebDeveloper/React-Course-Alicia#readme",
+  "description": ""
+}
