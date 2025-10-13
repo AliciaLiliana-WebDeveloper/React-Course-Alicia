@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo: CustomEvent básico</title>
+</head>
+<body>
+  <h1>Demo: CustomEvent básico</h1>
+  <child-element></child-element>
+
+  <script>
+    class ChildElement extends HTMLElement {
+      connectedCallback() {
+        this.innerHTML = `<button>Haz clic</button>`;
+        this.querySelector("button").addEventListener("click", () => {
+          const event = new CustomEvent("saludo", {
+            detail: { message: "Hola desde el hijo" },
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+          });
+          this.dispatchEvent(event);
+        });
+      }
+    }
+
+    customElements.define("child-element", ChildElement);
+
+    // Escucha del evento en el documento
+    document.body.addEventListener("saludo", (event) => {
+        console.log("Evento 'saludo' capturado en el body", event);
+        console.log("Evento recibido:", event.detail.message);
+    });
+  </script>
+</body>
+</html>

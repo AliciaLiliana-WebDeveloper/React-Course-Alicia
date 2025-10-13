@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bubbling y cancelación</title>
+  <style>
+    #padre {
+      border: 2px solid black;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="padre">
+    <child-button></child-button>
+  </div>
+
+  <script>
+    class ChildButton extends HTMLElement {
+      connectedCallback() {
+        this.innerHTML = `<button>Emitir evento</button>`;
+        this.querySelector("button").addEventListener("click", () => {
+          const event = new CustomEvent("mi-evento", {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+          });
+          this.dispatchEvent(event);
+        });
+      }
+    }
+
+    customElements.define("child-button", ChildButton);
+
+    const padre = document.getElementById("padre");
+
+    padre.addEventListener("mi-evento", (e) => {
+        console.log("✅ Capturado en PADRE");
+        console.log(e.target);
+        e.stopPropagation();
+        e.preventDefault();
+
+      // Si descomentas la siguiente línea, el evento NO llegará al body
+        //e.stopPropagation();
+    });
+
+    document.body.addEventListener("mi-evento", () => 
+      console.log("🌍 Capturado en BODY")
+    );
+  </script>
+</body>
+</html>
