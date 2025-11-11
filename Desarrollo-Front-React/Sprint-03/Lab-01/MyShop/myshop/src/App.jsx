@@ -1,10 +1,11 @@
 import './App.css';
-import Card from './components/Card/Card';
+import './components/Contador/Contador.jsx'
+import Contador from './components/Contador/Contador.jsx';
 
 function App() {
   return ( 
   <> 
-    <Card></Card>
+    <Contador/>
   </>
   );
 }

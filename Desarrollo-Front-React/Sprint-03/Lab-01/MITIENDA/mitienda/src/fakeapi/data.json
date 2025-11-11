@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "title": "Fjallraven Foldsack No. 1 Backpack, Fits 15 Laptops",
+        "price": 109.95,
+        "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday essentials, and more.",
+        "category": "men's clothing",
+        "image": "image1.jpg",
+        "rating": {
+            "rate": 3.9,
+            "count": 120
+        }
+    },
+    {
+        "id": 2,
+        "title": "Mens Casual Premium Slim Fit T-Shirts",
+        "price": 22.3,
+        "description": "Slim-fitting style sdvs svsvs svdsvs svsv",
+        "category": "men's clothing",
+        "image": "image2.jpg",
+        "rating": {
+            "rate": 4.1,
+            "count": 259
+        }
+    },
+    {
+        "id": 3,
+        "title": "Mens Cotton Jacket",
+        "price": 55.99,
+        "description": "Slim-fitting style sdvs svsvs svdsvs svsv",
+        "category": "men's clothing",
+        "image": "image3.jpg",
+        "rating": {
+            "rate": 4.7,
+            "count": 500
+        }
+    },
+    {
+        "id": 4,
+        "title": "Mens Casual Slim Fit",
+        "price": 15.99,
+        "description": "Slim-fitting style sdvs svsvs svdsvs svsv",
+        "category": "men's clothing",
+        "image": "image4.jpg",
+        "rating": {
+            "rate": 2.1,
+            "count": 430
+        }
+    },
+    {
+        "id": 5,
+        "title": "John Hardy Women's Legends Naga Gold",
+        "price": 695,
+        "description": "Slim-fitting style sdvs svsvs svdsvs svsv",
+        "category": "men's clothing",
+        "image": "image5.jpg",
+        "rating": {
+            "rate": 4.6,
+            "count": 400
+        }
+    }
+]
