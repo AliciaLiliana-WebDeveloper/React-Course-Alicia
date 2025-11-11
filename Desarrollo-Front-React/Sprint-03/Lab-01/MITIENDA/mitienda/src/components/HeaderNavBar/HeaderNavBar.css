@@ -1,0 +1,95 @@
+.header-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e1e; /* Fondo oscuro elegante */
+    color: #fff;
+    padding: 1rem 2rem;
+    font-family: "Inter", sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* LOGO */
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff8c00; /* Color acento */
+    cursor: pointer;
+  }
+  
+  /* MENÚ PRINCIPAL */
+  .menu-options {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-options li {
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .menu-options li:hover {
+    color: #ff8c00;
+  }
+  
+  /* Barra debajo en hover */
+  .menu-options li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ff8c00;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.3s ease;
+  }
+  
+  .menu-options li:hover::after {
+    width: 100%;
+  }
+  
+  /* BARRA DE BÚSQUEDA */
+  .search-bar {
+    position: relative;
+  }
+  
+  .search-bar input {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    width: 220px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-bar input:focus {
+    width: 260px;
+    box-shadow: 0 0 0 2px #ff8c00;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .header-navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .menu-options {
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  
+    .search-bar input {
+      width: 100%;
+    }
+  }
+  

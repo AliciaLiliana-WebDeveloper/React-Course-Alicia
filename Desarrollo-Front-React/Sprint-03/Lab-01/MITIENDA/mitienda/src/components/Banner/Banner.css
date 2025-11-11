@@ -1,0 +1,65 @@
+.banner {
+    background: linear-gradient(90deg, #ff8c00, #ffb347); /* degradado cálido */
+    color: #fff;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 0.6s ease-out;
+  }
+  
+  /* Animación de entrada */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .banner-text {
+    margin: 0;
+    text-transform: uppercase;
+  }
+  
+  /* Efecto de brillo animado */
+  .banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    animation: shine 3s infinite;
+  }
+  
+  @keyframes shine {
+    from {
+      left: -75%;
+    }
+    to {
+      left: 125%;
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .banner {
+      font-size: 0.9rem;
+      padding: 0.6rem;
+    }
+  }
+  

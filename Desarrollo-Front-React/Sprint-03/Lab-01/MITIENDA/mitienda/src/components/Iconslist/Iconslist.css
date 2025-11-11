@@ -1,0 +1,48 @@
+.user-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre iconos */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .user-icons li {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .user-icons li:hover {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+  
+  .user-icons img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    transition: filter 0.3s ease;
+  }
+  
+  /* Opcional: versión clara */
+  .light-theme .user-icons img {
+    filter: invert(0%);
+  }
+  
+  /* Opcional: versión oscura (por si el fondo es oscuro) */
+  .dark-theme .user-icons img {
+    filter: invert(100%);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .user-icons {
+      gap: 1rem;
+    }
+  
+    .user-icons img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  

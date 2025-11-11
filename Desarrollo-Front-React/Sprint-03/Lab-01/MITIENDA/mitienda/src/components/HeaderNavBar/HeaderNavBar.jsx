@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import "./HeaderNavBar.css"
 
-function HeaderNavBar() {
+function HeaderNavBar({ onFilterChange }) {
   const menuOptions = ["Inicio", "Categorías", "Ofertas", "Contacto"];
   const [textoFiltro, setTextoFiltro] = useState("");
 

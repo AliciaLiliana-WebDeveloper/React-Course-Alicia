@@ -3,11 +3,11 @@ import HeaderNavBar from "../HeaderNavBar/HeaderNavBar";
 import IconsList from "../Iconslist/Iconslist";
 import "./Header.css";
 
-function Header() {
+function Header({ onFilterChange }) {
   return (
     <header>
       <div className="header-container">
-        <HeaderNavBar />
+        <HeaderNavBar onFilterChange={onFilterChange} />
         <IconsList />
       </div>
     </header>

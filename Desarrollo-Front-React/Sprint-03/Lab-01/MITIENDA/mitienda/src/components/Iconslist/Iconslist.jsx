@@ -2,7 +2,7 @@ import React from "react";
 import UserIcon from "../../icons/UserIcon.png";
 import LikeIcon from "../../icons/LikeIcon.png";
 import CartIcon from "../../icons/CartIcon.svg";
-
+import "./Iconslist.css";
 function IconsList() {
   const whiteIconStyle = { filter: "invert(100%)" }; // Estilo para hacer los iconos blancos
 
