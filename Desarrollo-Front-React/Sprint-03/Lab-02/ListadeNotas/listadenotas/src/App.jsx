@@ -4,12 +4,13 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import ListaDeNotas from "./ListaDeNotas";
 import MousePositionComponent from "./MousePositionComponent";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <div>
-      <MousePositionComponent />
-    </div>
+    <ThemeProvider>
+      <ListaDeNotas />
+    </ThemeProvider>
   );
 }
 
