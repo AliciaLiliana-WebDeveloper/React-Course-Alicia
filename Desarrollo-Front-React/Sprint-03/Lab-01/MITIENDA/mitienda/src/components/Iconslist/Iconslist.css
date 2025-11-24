@@ -4,7 +4,8 @@
     gap: 1.5rem; /* Espacio entre iconos */
     list-style: none;
     margin: 0;
-    padding: 0;
+    justify-content: flex-end;
+    padding: 1rem;
   }
   
   .user-icons li {
