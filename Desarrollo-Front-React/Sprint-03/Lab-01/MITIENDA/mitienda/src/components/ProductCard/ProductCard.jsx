@@ -1,8 +1,10 @@
 import React from "react";
 import "./ProductCard.css";
+import useCart from "../../hooks/useCart.js";
 
 const ProductCard = ({ product }) => {
   const { id, title, price, description, image, rating } = product;
+  const { addToCart } = useCart();
 
   return (
     <div className="product-card" key={id}>
@@ -20,6 +22,7 @@ const ProductCard = ({ product }) => {
 
         <p className="product-price">{`$${price}`}</p>
       </div>
+      <button className="product-add-to-cart" onClick={() => addToCart(product)}>Añadir al Carrito</button>
     </div>
   );
 };

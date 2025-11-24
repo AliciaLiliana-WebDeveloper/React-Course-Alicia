@@ -59,4 +59,6 @@
       padding-left: 0;
     }
   }
-  
+  .dark-mode .footer {
+    background-color: #111;
+  }

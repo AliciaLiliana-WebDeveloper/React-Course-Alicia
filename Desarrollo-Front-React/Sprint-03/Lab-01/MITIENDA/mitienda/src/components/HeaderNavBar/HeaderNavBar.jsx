@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./HeaderNavBar.css"
 
-function HeaderNavBar({ onFilterChange }) {
+function HeaderNavBar({ onFilterChange, onClickLogo }) {
   const menuOptions = ["Inicio", "Categorías", "Ofertas", "Contacto"];
   const [textoFiltro, setTextoFiltro] = useState("");
 
@@ -13,11 +13,16 @@ function HeaderNavBar({ onFilterChange }) {
 
   return (
     <nav className="header-navbar">
-      <div className="logo">MiTienda</div>
+      <div className="logo" onClick={onClickLogo}>MiTienda</div>
 
       <ul className="menu-options">
         {menuOptions.map((opt) => (
-          <li key={opt}>{opt}</li>
+          <li 
+            key={opt} 
+            onClick={opt === "Inicio" ? onClickLogo : undefined}
+          >
+            {opt}
+          </li>
         ))}
       </ul>
 
@@ -32,5 +37,6 @@ function HeaderNavBar({ onFilterChange }) {
     </nav>
   );
 }
+
 
 export default HeaderNavBar;
