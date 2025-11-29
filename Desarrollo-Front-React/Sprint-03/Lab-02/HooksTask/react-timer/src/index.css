@@ -1,0 +1,16 @@
+button {
+  padding: 8px 14px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+
+h1, h2 {
+  font-family: sans-serif;
+}
