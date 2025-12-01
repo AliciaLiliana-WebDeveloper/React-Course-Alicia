@@ -3,17 +3,18 @@ import "./CartSection.css";
 import useCart from "../../hooks/useCart";
 
 const CartSection = () => {
-  const { cartItems = [] } = useCart();
+  const { cartItems, resetCart} = useCart();
 
   // Agrupar los items por id y contar cantidad
   const groupedCartItems = cartItems.reduce((acc, item) => {
     if (acc[item.id]) {
-      acc[item.id].count++;
+      acc[item.id].count++; // si ya existe, aumenta el count
     } else {
-      acc[item.id] = { ...item, count: 1 };
+      acc[item.id] = { ...item, count: 1 }; // si no existe, crea con count=1
     }
     return acc;
   }, {});
+  
 
   const uniqueCartItems = Object.values(groupedCartItems);
 
@@ -21,6 +22,13 @@ const CartSection = () => {
     (acc, item) => acc + item.price * item.count,
     0
   );
+
+  const handleBuy = () => {
+    cartItems.length
+      ? alert("Serás redirigido a la pasarela de pago")
+      : alert("Añade productos al carro");
+    resetCart();
+  };
 
   return (
     <div className="cart-container">
@@ -43,6 +51,13 @@ const CartSection = () => {
       <div className="total-price">
         <p>Total a Pagar: ${totalPrice.toFixed(2)}</p>
       </div>
+      <button className="buy-button" onClick={handleBuy}>
+        Comprar
+      </button>
+      <button className="reset-button" onClick={resetCart}>
+        Reset Carro
+      </button>
+
     </div>
   );
 };
