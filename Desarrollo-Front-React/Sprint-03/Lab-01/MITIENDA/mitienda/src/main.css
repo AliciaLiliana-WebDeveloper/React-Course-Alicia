@@ -1,21 +1,28 @@
 /* Estilos claros por defecto */
 body {
-    background-color: #f5f5f5;
-    color: #222;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
+  background-color: #f5f5f5;
+  color: #222;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
   
-  /* Dark mode */
-  .darkMode {
-    background-color: #121212;
-    color: #f5f5f5;
-  }
-  
-  .darkMode .header-container,
-  .darkMode .products-section,
-  .darkMode .footer {
-    background-color: #1e1e1e;
-    color: #f5f5f5;
-  }
-  
+.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.dark-mode .header-container,
+.dark-mode .products-section,
+.dark-mode .footer {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+/* Iconos según tema */
+.dark-mode .user-icons img {
+  filter: invert(100%);
+}
+
+.light-mode .user-icons img {
+  filter: invert(0%);
+}
