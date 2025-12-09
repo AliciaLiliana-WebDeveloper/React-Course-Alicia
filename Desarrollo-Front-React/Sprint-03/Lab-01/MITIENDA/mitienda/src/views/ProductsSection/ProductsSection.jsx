@@ -1,20 +1,82 @@
-import React from "react";
-import ProductCard from "../../components/ProductCard/ProductCard";
+import React, { useState } from "react";
 import "./ProductsSection.css";
-import data from "../../fakeapi/data.json";
+import { useFiltro } from "../../context/FilterContext";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import { useProducts } from "../../hooks/useProducts";
+import useAuth from "../../hooks/useAuth";
+import AddProductModal from "../../components/AddProductModal/AddProductModal";
+import Loader from "../../components/Loader/Loader";
+import ErrorComponent from "../../components/ErrorComponent/ErrorComponent";
 
-function ProductsSection({ filtro = "" }) {
-  // Filtrar productos por título
-  const products = data.filter((product) =>
+function ProductsSection() {
+  const { filtro } = useFiltro();
+  const { products, loading, error, addProduct } = useProducts();
+  const { userData } = useAuth();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const isAdmin = userData?.role === "admin";
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(filtro.toLowerCase())
   );
 
+  const handleAddProduct = () => {
+    openModal();
+  };
+
+  // LOADING
+  if (loading) {
+    return <Loader />;
+  }
+
+  // ERROR
+  if (error) {
+    return <ErrorComponent error={error} />;
+  }
+
   return (
-    <div className="products-section">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <>
+      {isModalOpen && (
+        <AddProductModal
+          closeModal={closeModal}
+          addProduct={(newProduct) => {
+            addProduct(newProduct);
+            closeModal();
+          }}
+        />
+      )}
+
+      <div className="products-section">
+        {filteredProducts.length ? (
+          filteredProducts.map((product) => (
+            <ProductCard
+              key={`${product.id}-${product.updatedAt}`}
+              product={product}
+              userData={userData}
+            />
+          ))
+        ) : (
+          !error && <p>No hay productos que coincidan con tu búsqueda</p>
+        )}
+      </div>
+
+      {isAdmin && (
+        <div className="add-product-btn-container">
+          <button className="add-product-btn" onClick={handleAddProduct}>
+            Add New Product
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 

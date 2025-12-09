@@ -1,35 +1,53 @@
-import React from "react";
-import products from "../../fakeapi/data.json";
-import { Outlet, useParams } from "react-router";
-import "./ProductDetails.css";
-import BackButton from "../../components/BackButton/BackButton";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { useProducts } from "../../hooks/useProducts";
 import AddToCartButton from "../../components/AddToCartButton/AddToCartButton";
-import { Link } from "react-router-dom";
+import BackButton from "../../components/BackButton/BackButton";
+import ErrorComponent from "../../components/ErrorComponent/ErrorComponent";
+import Loader from "../../components/Loader/Loader";
+import "./ProductDetails.css";
 
 const ProductDetails = () => {
+  const [product, setProduct] = useState(null);
+  const { getProductById, loading, error } = useProducts();
   const { id } = useParams();
-  const product = products.find((product) => product.id === parseInt(id));
 
-  if (!product) {
-    return <p>Loading product...</p>;
+  useEffect(() => {
+    const fetchData = async () => {
+      const productData = await getProductById(id);
+      setProduct(productData);
+    };
+    fetchData();
+  }, [id]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (!product && !error) {
+    return <>No hay productos</>;
   }
 
   return (
-    <div className="product-details-container">
-      <div className="product-image">
-        <img src={product.image} alt={product.title} />
-        <BackButton />
-      </div>
-
-      <div className="product-info">
-        <h2 className="product-title">{product.title}</h2>
-        <p className="product-price">{`$${product.price}`}</p>
-        <p className="product-description">{product.description}</p>
-        <p className="product-category">{`Category: ${product.category}`}</p>
-
-        <AddToCartButton item={product} />
-      </div>
-    </div>
+    <>
+      {error ? (
+        <ErrorComponent error={error} />
+      ) : (
+        <div className="product-details-container">
+          <div className="product-image">
+            <img src={product.image} alt={product.title} />
+            <BackButton />
+          </div>
+          <div className="product-info">
+            <h2 className="product-title">{product.title}</h2>
+            <p className="product-price">${product.price}</p>
+            <p className="product-description">{product.description}</p>
+            <p className="product-category">{`Category: ${product.category}`}</p>
+            <AddToCartButton item={product} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
