@@ -15,10 +15,18 @@ const LoginForm = ({ onClose }) => {
     const form = e.target;
     const nombre = form.nombre.value;
     const email = form.email.value;
-
+  
     if (nombre && email) {
-      handleLogin({ name: nombre, email });
-      navigate(location.state.pathname);
+      // Lista de emails que son admin
+      const adminEmails = ["admin@admin.com", "tuprofe@curso.com"];
+      const role = adminEmails.includes(email) ? "admin" : "user";
+  
+      handleLogin({ 
+        name: nombre, 
+        email,
+        role 
+      });
+      navigate(location.state?.pathname || "/");
       form.reset();
     } else {
       alert("Por favor, completa todos los campos.");
