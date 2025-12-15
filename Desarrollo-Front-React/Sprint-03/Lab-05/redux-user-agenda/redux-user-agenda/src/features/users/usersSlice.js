@@ -1,12 +1,13 @@
-// src/features/users/usersSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-// createAsyncThunk para obtener un usuario aleatorio
 export const fetchRandomUser = createAsyncThunk(
   'users/fetchRandomUser',
   async (_, { rejectWithValue }) => {
     try {
       const response = await fetch('https://randomuser.me/api/');
+      if (!response.ok) {
+        return rejectWithValue(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       const user = data.results[0];
       return {
@@ -16,7 +17,7 @@ export const fetchRandomUser = createAsyncThunk(
         thumbnail: user.picture.thumbnail,
       };
     } catch (error) {
-      return rejectWithValue('Error al obtener usuario');
+      return rejectWithValue(error.message || 'Error al obtener usuario');
     }
   }
 );
@@ -27,10 +28,20 @@ const usersSlice = createSlice({
     users: [],
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
+    selectedUserId: null, // ✅ campo para usuario seleccionado
   },
   reducers: {
     removeUser: (state, action) => {
       state.users = state.users.filter(user => user.id !== action.payload);
+      if (state.selectedUserId === action.payload) {
+        state.selectedUserId = null; // Limpiar selección si se elimina
+      }
+    },
+    selectUser: (state, action) => {
+      state.selectedUserId = action.payload;
+    },
+    clearSelection: (state) => {
+      state.selectedUserId = null;
     },
   },
   extraReducers: (builder) => {
@@ -50,5 +61,5 @@ const usersSlice = createSlice({
   },
 });
 
-export const { removeUser } = usersSlice.actions;
+export const { removeUser, selectUser, clearSelection } = usersSlice.actions;
 export default usersSlice.reducer;

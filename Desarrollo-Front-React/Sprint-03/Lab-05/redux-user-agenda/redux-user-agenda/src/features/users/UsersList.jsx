@@ -1,10 +1,9 @@
-// src/features/users/UsersList.jsx
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchRandomUser, removeUser } from './usersSlice';
+import { fetchRandomUser, removeUser, selectUser } from './usersSlice';
 
 const UsersList = () => {
-  const { users, status, error } = useSelector(state => state.users);
+  const { users, status, error, selectedUserId } = useSelector(state => state.users);
   const dispatch = useDispatch();
 
   return (
@@ -23,18 +22,22 @@ const UsersList = () => {
         {users.map(user => (
           <div
             key={user.id}
+            onClick={() => dispatch(selectUser(user.id))}
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '10px',
               padding: '10px',
-              backgroundColor: 'white',
               borderRadius: '6px',
+              backgroundColor: selectedUserId === user.id ? '#d0f0fd' : 'white', // resaltar seleccionado
+              cursor: 'pointer',
             }}
           >
             <img src={user.thumbnail} alt={`${user.firstName} ${user.lastName}`} />
             <span>{user.firstName} {user.lastName}</span>
-            <button onClick={() => dispatch(removeUser(user.id))}>Eliminar</button>
+            <button onClick={(e) => { e.stopPropagation(); dispatch(removeUser(user.id)) }}>
+              Eliminar
+            </button>
           </div>
         ))}
       </div>
