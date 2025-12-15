@@ -1,0 +1,41 @@
+/* src/index.css */
+
+/* Estilos globales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Botones */
+button {
+  padding: 6px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Contenedores de contador */
+div > div {
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
