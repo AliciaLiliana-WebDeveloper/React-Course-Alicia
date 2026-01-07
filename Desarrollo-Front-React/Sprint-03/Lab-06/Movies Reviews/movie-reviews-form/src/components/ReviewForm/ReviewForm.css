@@ -1,0 +1,24 @@
+.review-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  .radio-group,
+  .checkbox-group {
+    display: flex;
+    gap: 10px;
+  }
+  
